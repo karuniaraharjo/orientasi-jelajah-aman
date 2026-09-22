@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 // Catatan: gunakan ../components/ jika file berada di dalam folder app/
 // yang sejajar dengan folder components/
-import { LaporanUdara } from "../../types/cuaca";
-import IndikatorAQI from "../components/IndikatorAQI";
-import RiwayatList from "../components/RiwayatList";
-import SearchBox from "../components/SearchBox";
-import WeatherCard from "../components/WeatherCard";
+import { LaporanUdara } from "../../../types/cuaca";
+import IndikatorAQI from "../../components/IndikatorAQI";
+import RiwayatList from "../../components/RiwayatList";
+import SearchBox from "../../components/SearchBox";
+import WeatherCard from "../../components/WeatherCard";
 export default function HalamanUtama() {
   const [kotaAktif, setKotaAktif] = useState("Pekalongan");
   const [riwayat, setRiwayat] = useState<string[]>(["Pekalongan"]);
