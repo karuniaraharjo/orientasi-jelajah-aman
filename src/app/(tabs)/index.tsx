@@ -81,28 +81,37 @@ export default function HalamanUtama() {
   }
   const [pesanLokasi, setPesanLokasi] = useState<string | null>(null);
   async function gunakanLokasiSaatIni() {
-    const status = await mintaIzinLokasi();
-    if (status === "denied") {
-      setPesanLokasi(
-        "Izin lokasi ditolak. Silakan cari kota secara manual di atas.",
-      );
-      return;
-    }
-    if (status === "unavailable") {
-      setPesanLokasi(
-        "Layanan lokasi tidak aktif di perangkat ini. Silakan cari kota secara manual.",
-      );
-      return;
-    }
     setPesanLokasi(null);
-    const koordinat = await ambilKoordinatSaatIni();
-    pilihKota({
-      id: -1,
-      name: "Lokasi Saat Ini",
-      latitude: koordinat.latitude,
-      longitude: koordinat.longitude,
-      country: "",
-    });
+    setSedangMemuat(true);
+    try {
+      const status = await mintaIzinLokasi();
+      if (status === "denied") {
+        setPesanLokasi(
+          "Izin lokasi ditolak. Silakan izinkan akses lokasi di pengaturan perangkat atau browser.",
+        );
+        return;
+      }
+      if (status === "unavailable") {
+        setPesanLokasi(
+          "Layanan lokasi (GPS) tidak aktif di perangkat ini. Silakan aktifkan GPS atau cari kota secara manual.",
+        );
+        return;
+      }
+      const koordinat = await ambilKoordinatSaatIni();
+      await pilihKota({
+        id: -1,
+        name: "Lokasi Saat Ini",
+        latitude: koordinat.latitude,
+        longitude: koordinat.longitude,
+        country: "",
+      });
+    } catch (err) {
+      setPesanLokasi(
+        "Gagal mendapatkan lokasi saat ini. Pastikan GPS/izin aktif atau cari kota secara manual.",
+      );
+    } finally {
+      setSedangMemuat(false);
+    }
   }
   return (
     <SafeAreaView style={{ flex: 1, padding: 16, gap: 16 }}>
