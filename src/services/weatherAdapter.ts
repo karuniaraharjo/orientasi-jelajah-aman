@@ -1,4 +1,4 @@
-import { TingkatAQI } from "../../types/cuaca";
+import { TingkatAQI } from "../types/cuaca";
 export function konversiTingkatAQI(indeksEropa: number): TingkatAQI {
   if (indeksEropa <= 20) return "BAIK";
   if (indeksEropa <= 40) return "SEDANG";

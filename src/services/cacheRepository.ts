@@ -4,8 +4,8 @@ import {
   DataTersimpan,
   KotaUntukCache,
   RingkasanKotaTersimpan,
-} from "../../types/cache";
-import { DataCuacaLengkap, DataKualitasUdara } from "../../types/weather";
+} from "../types/cache";
+import { DataCuacaLengkap, DataKualitasUdara } from "../types/weather";
 interface BarisCache {
   kunci: string;
   kota_id: number;

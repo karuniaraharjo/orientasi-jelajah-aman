@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { Alert, Button, Platform, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ambilSemuaFavorit, hapusFavorit } from "../../services/favoritStorage";
-import { KotaFavorit } from "../../../types/favorit";
+import { KotaFavorit } from "../../types/favorit";
 export default function TabRiwayat() {
   const [daftarFavorit, setDaftarFavorit] = useState<KotaFavorit[]>([]);
   useFocusEffect(
@@ -18,7 +18,9 @@ export default function TabRiwayat() {
 
   function konfirmasiHapus(kota: KotaFavorit) {
     if (Platform.OS === "web") {
-      const yakin = typeof window !== "undefined" && window.confirm(`Yakin hapus ${kota.nama}?`);
+      const yakin =
+        typeof window !== "undefined" &&
+        window.confirm(`Yakin hapus ${kota.nama}?`);
       if (yakin) {
         hapus(kota.id);
       }

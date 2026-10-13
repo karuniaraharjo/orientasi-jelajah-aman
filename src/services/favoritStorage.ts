@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { KotaFavorit } from "../../types/favorit";
+import { KotaFavorit } from "../types/favorit";
 const KUNCI_PENYIMPANAN = "@jelajah_aman:favorit";
 export async function ambilSemuaFavorit(): Promise<KotaFavorit[]> {
   const json = await AsyncStorage.getItem(KUNCI_PENYIMPANAN);

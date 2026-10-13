@@ -8,23 +8,23 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { HasilGeocoding } from "../../../types/geocoding";
-import { DataCuacaLengkap, DataKualitasUdara } from "../../../types/weather";
-import { KotaFavorit } from "../../../types/favorit";
 import AtribusiCuaca from "../../components/AtribusiCuaca";
 import SearchBox from "../../components/SearchBox";
 import WeatherCard from "../../components/WeatherCard";
 import { labelKodeCuaca } from "../../constants/weatherCodes";
 import { useDebounce } from "../../hooks/use-debounce";
 import { ambilKualitasUdara } from "../../services/airQualityService";
-import { cariKota } from "../../services/geocodingService";
 import { ambilSemuaFavorit } from "../../services/favoritStorage";
+import { cariKota } from "../../services/geocodingService";
 import {
   ambilKoordinatSaatIni,
   mintaIzinLokasi,
 } from "../../services/locationService";
 import { konversiTingkatAQI } from "../../services/weatherAdapter";
 import { ambilCuaca } from "../../services/weatherService";
+import { KotaFavorit } from "../../types/favorit";
+import { HasilGeocoding } from "../../types/geocoding";
+import { DataCuacaLengkap, DataKualitasUdara } from "../../types/weather";
 export default function HalamanUtama() {
   const [teksCari, setTeksCari] = useState("");
   const [hasilPencarian, setHasilPencarian] = useState<HasilGeocoding[]>([]);

@@ -1,7 +1,7 @@
 // src/components/WeatherCard.tsx
 import { Text, View } from "react-native";
-import { TingkatAQI, WeatherCardProps } from "../../types/cuaca";
 import { spacing, typeScale } from "../constants/styles";
+import { TingkatAQI, WeatherCardProps } from "../types/cuaca";
 const warnaPerTingkat: Record<TingkatAQI, string> = {
   BAIK: "green",
   SEDANG: "goldenrod",
