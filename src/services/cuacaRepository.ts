@@ -1,5 +1,5 @@
 // src/services/cuacaRepository.ts
-import { HasilCuacaOffline, KotaUntukCache } from "../../types/cache";
+import { HasilCuacaOffline, KotaUntukCache } from "../types/cache";
 import { ambilKualitasUdara } from "./airQualityService";
 import { ambilCache, simpanCache } from "./cacheRepository";
 import { ambilCuaca } from "./weatherService";
