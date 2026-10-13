@@ -1,5 +1,5 @@
 // src/types/cache.ts
-import { DataCuacaLengkap, DataKualitasUdara } from "../../types/weather";
+import { DataCuacaLengkap, DataKualitasUdara } from "./weather";
 // Dari mana data yang sedang tampil berasal
 export type SumberData = "jaringan" | "cache-segar" | "cache-basi";
 // Identitas lokasi yang disimpan bersama cache
