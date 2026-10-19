@@ -87,3 +87,21 @@ export async function hapusSemuaCache(): Promise<void> {
   const db = await ambilDatabase();
   await db.runAsync("DELETE FROM cache_cuaca");
 }
+
+// Invalidation per-item: hapus satu cache berdasarkan kunci
+export async function hapusCacheSatu(kunci: string): Promise<void> {
+  const db = await ambilDatabase();
+  await db.runAsync("DELETE FROM cache_cuaca WHERE kunci = ?", [kunci]);
+}
+
+// Invalidation per-item: hapus satu cache berdasarkan koordinat kota
+export async function hapusCacheDenganKoordinat(
+  latitude: number,
+  longitude: number,
+): Promise<void> {
+  const db = await ambilDatabase();
+  await db.runAsync("DELETE FROM cache_cuaca WHERE kunci = ?", [
+    buatKunci(latitude, longitude),
+  ]);
+}
+
