@@ -2,6 +2,10 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Penjelasan Status Data & Cache
+
+**Cache-segar** adalah data lokal tersimpan yang masih berada dalam batas waktu toleransi (TTL) sehingga langsung disajikan secara instan tanpa memanggil jaringan internet, sedangkan **cache-basi** adalah data tersimpan yang telah melewati batas TTL namun tetap disajikan sebagai cadangan (*fallback*) saat koneksi sedang offline. Sementara itu, **first-run offline** merupakan kondisi ketika aplikasi baru pertama kali dibuka atau lokasi baru diakses tanpa koneksi internet dan belum memiliki data cache sama sekali, sehingga informasi cuaca tidak dapat ditampilkan. Label status data ini sangat penting bagi pengguna guna memberikan transparansi mengenai kebaruan dan keandalan data cuaca yang sedang dilihat demi keamanan serta ketepatan dalam merencanakan perjalanan.
+
 ## Get started
 
 1. Install dependencies
